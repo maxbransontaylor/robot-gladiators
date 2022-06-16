@@ -53,7 +53,7 @@ var fight = function (enemyName) {
         //if player chooses to skip
 
     }
-}
+};
 var startGame = function () {
     playerHealth = 100;
     playerAttack = 10;
@@ -66,7 +66,12 @@ var startGame = function () {
 
             var pickedEnemyName = enemyNames[i];
             enemyHealth = 50;
+            debugger;
             fight(pickedEnemyName);
+            debugger;
+            if (playerHealth > 0 && i < enemyNames.length - 1) {
+                shop();
+            }
         }
         else {
             window.alert("You have lost your robot in battle! Game over!")
@@ -88,5 +93,8 @@ var endGame = function () {
     } else {
         window.alert("Thank you for playing Robot Gladiators! Come back soon!");
     }
+}
+var shop = function () {
+    console.log("entered the shop");
 }
 startGame();
