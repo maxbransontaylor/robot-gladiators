@@ -173,6 +173,23 @@ var endGame = function () {
         playerInfo.money +
         "."
     );
+    if (
+      playerInfo.money > parseInt(localStorage.getItem("High-score")) ||
+      !localStorage.getItem("High-score")
+    ) {
+      window.alert(
+        "You're score of " +
+          playerInfo.money +
+          " beat the previous high score of " +
+          localStorage.getItem("High-score") +
+          " set by " +
+          localStorage.getItem("high-scorer-name")
+      );
+      localStorage.setItem("High-score", playerInfo.money);
+      localStorage.setItem("high-scorer-name", playerInfo.name);
+    } else {
+      window.alert("You did not reach the high score.");
+    }
   } else {
     window.alert("You've lost your robot in battle.");
   }
